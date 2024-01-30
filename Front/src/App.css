@@ -4,4 +4,39 @@
   margin: 0 auto;
   padding: 2rem;
 }
-  
+
+/* App.css */
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.main-content {
+  width: 100vh;
+  flex: 1;
+  padding: 100px; 
+}
+
+.NavBarHorizontal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.NavBarVertical {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+}
+
+
+
