@@ -39,11 +39,16 @@ function Dashboard() {
         </h1>
         <p className="txt-congratulation">Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
-      <div className="container-keyDatas">
-        <KeyData type="calorie" value={calorieCount} />
-        <KeyData type="protein" value={proteinCount} />
-        <KeyData type="carbohydrate" value={carbohydrateCount} />
-        <KeyData type="lipid" value={lipidCount} />
+      <div className="container-data">
+        <div className="container-chart">
+          
+        </div>
+        <div className="container-keyDatas">
+          <KeyData type="calorie" value={calorieCount} />
+          <KeyData type="protein" value={proteinCount} />
+          <KeyData type="carbohydrate" value={carbohydrateCount} />
+          <KeyData type="lipid" value={lipidCount} />
+        </div>
       </div>
     </div>
   );
