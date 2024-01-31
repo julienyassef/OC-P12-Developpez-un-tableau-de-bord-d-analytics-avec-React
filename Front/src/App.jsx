@@ -1,3 +1,5 @@
+import './App.css'
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBarHorizontal from './component/layout/NavBarHorizontal/NavBarHorizontal';
@@ -9,13 +11,11 @@ function App() {
     <Router>
       <div className="app-container">
         <NavBarHorizontal />
-        <div className="main-container">
-          <NavBarVertical />
-          <div className="main-content">
-            <Routes>
-              <Route path="/user/:id" element={<Dashboard />} />
-            </Routes>
-          </div>
+        <NavBarVertical />
+        <div className="page-content">
+          <Routes>
+            <Route path="/user/:id" element={<Dashboard />} />
+          </Routes>
         </div>
       </div>
     </Router>
