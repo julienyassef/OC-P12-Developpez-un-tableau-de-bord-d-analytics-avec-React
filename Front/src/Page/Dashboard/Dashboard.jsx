@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 
 //component
 import KeyData from '../../component/KeyData/KeyData';
+import BarChart from '../../component/BarChart/BarChart';
 
 // Data
 import { getUserData } from '../../apiService/apiService';
@@ -18,8 +19,8 @@ function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const data = await getUserData(id);
-        const data = await getUserDataMock(id);
+        const data = await getUserData(id);
+        // const data = await getUserDataMock(id);
         setUserData(data);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -46,6 +47,7 @@ function Dashboard() {
         <p className="txt-congratulation">Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
       <div className="container-data">
+        <BarChart userId={id} />
         <div className="container-chart">
 
         </div>
