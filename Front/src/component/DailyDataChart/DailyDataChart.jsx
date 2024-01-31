@@ -1,17 +1,17 @@
-import './BarChart.css'
+import './DailyDataChart.css'
 
 //React
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 //Recharts
-
+import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
 
 // Data
 import { getUserActivityData } from '../../apiService/apiService';
 import { getUserActivityDataMock  } from '../../mockApi/mockApi';
 
-function BarChart({userId}) {
+function DailyDataChart({userId}) {
     const { id } = useParams();
     const [userData, setUserData] = useState(null);
   
@@ -35,11 +35,15 @@ function BarChart({userId}) {
 
     
     return (
-    <div className="bar-chart">  
-
-    
-       
-    </div>
+      <BarChart width={835} height={320} data={userData.data.sessions}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="day" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Bar dataKey="kilogram" fill="#282D30" name="Poids (Kg)" />
+      <Bar dataKey="calories" fill="#E60000" name="Calories brûlées (KCal)" />
+      </BarChart>
   )
 }
-export default BarChart
+export default DailyDataChart

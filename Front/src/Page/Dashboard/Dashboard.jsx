@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 //component
 import KeyData from '../../component/KeyData/KeyData';
-import BarChart from '../../component/BarChart/BarChart';
+import DailyDataChart from '../../component/DailyDataChart/DailyDataChart';
 
 // Data
 import { getUserData } from '../../apiService/apiService';
@@ -47,7 +47,7 @@ function Dashboard() {
         <p className="txt-congratulation">Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
       <div className="container-data">
-        <BarChart userId={id} />
+        <DailyDataChart userId={id} />
         <div className="container-chart">
 
         </div>
