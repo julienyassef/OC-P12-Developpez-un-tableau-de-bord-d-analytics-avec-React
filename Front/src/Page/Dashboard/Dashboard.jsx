@@ -1,8 +1,15 @@
 import './Dashboard.css'
+
+//React
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+//component
 import KeyData from '../../component/KeyData/KeyData';
+
+// Data
 import { getUserData } from '../../apiService/apiService';
+import { getUserDataMock  } from '../../mockApi/mockApi';
 
 function Dashboard() {
   const { id } = useParams();
@@ -11,7 +18,8 @@ function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getUserData(id);
+        // const data = await getUserData(id);
+        const data = await getUserDataMock(id);
         setUserData(data);
       } catch (error) {
         console.error('Error fetching user data:', error);

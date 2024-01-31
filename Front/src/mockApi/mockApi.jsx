@@ -1,4 +1,4 @@
-export const getUserData = async (userId) => {
+export const getUserDataMock = async (userId) => {
 
     const mockUserData = {
         "data": {
@@ -38,7 +38,7 @@ export const getUserData = async (userId) => {
     return mockUserData;
 };
  
-export const getUserActivityData = async (userId) => {
+export const getUserActivityDataMock  = async (userId) => {
 const mockActivityData = {
     "data": {
         "userId": 12,
@@ -127,7 +127,7 @@ await new Promise(resolve => setTimeout(resolve, 1000));
 return mockActivityData;
 };
   
-export const getUserAverageSessionData = async (userId) => {
+export const getUserAverageSessionDataMock  = async (userId) => {
 const mockAverageSessionData = {
     "data": {
         "userId": 12,
@@ -203,7 +203,7 @@ await new Promise(resolve => setTimeout(resolve, 1000));
 return mockAverageSessionData;
 };
 
-export const getUserPerformanceData = async (userId) => {
+export const getUserPerformanceDataMock  = async (userId) => {
 const mockPerformanceData = {
     "data": {
         "userId": 12,
