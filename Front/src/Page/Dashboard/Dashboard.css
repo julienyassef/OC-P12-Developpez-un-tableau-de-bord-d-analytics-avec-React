@@ -44,6 +44,11 @@
     flex-direction: column;
 }
 
+.container-stats-chart{
+    display: flex;
+    flex-direction: row;
+}
+
 .container-keyDatas {
     height: 100%;
     display: flex;

@@ -48,9 +48,11 @@ function Dashboard() {
         <p className="txt-congratulation">Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
       <div className="container-data">
-        <DailyDataChart userId={id} />
         <div className="container-chart">
-          <SessionDurationChart userId={id}/>
+          <DailyDataChart userId={id} />
+          <div className="container-stats-chart">
+            <SessionDurationChart userId={id}/>
+          </div>
         </div>
         <div className="container-keyDatas">
           <KeyData type="calorie" value={calorieCount} />
