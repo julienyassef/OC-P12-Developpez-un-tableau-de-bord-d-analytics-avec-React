@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import KeyData from '../../component/KeyData/KeyData';
 import DailyDataChart from '../../component/DailyDataChart/DailyDataChart';
 import SessionDurationChart from '../../component/SessionDurationChart/SessionDurationChart';
+import ActivityCarriedOut from '../../component/ActivityCarriedOut/ActivityCarriedOut';
 
 // Data
 import { getUserData } from '../../apiService/apiService';
@@ -52,6 +53,7 @@ function Dashboard() {
           <DailyDataChart userId={id} />
           <div className="container-stats-chart">
             <SessionDurationChart userId={id}/>
+            <ActivityCarriedOut userId={id}/>
           </div>
         </div>
         <div className="container-keyDatas">
