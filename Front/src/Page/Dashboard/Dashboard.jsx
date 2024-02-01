@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 //component
 import KeyData from '../../component/KeyData/KeyData';
 import DailyDataChart from '../../component/DailyDataChart/DailyDataChart';
+import SessionDurationChart from '../../component/SessionDurationChart/SessionDurationChart';
 
 // Data
 import { getUserData } from '../../apiService/apiService';
@@ -49,7 +50,7 @@ function Dashboard() {
       <div className="container-data">
         <DailyDataChart userId={id} />
         <div className="container-chart">
-
+          <SessionDurationChart userId={id}/>
         </div>
         <div className="container-keyDatas">
           <KeyData type="calorie" value={calorieCount} />
