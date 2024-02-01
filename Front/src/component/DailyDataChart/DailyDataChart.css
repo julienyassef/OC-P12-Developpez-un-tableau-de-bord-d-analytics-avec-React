@@ -1,0 +1,21 @@
+.barChart-XAxis {
+    color: #9B9EAC;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    border: solid rgb(26, 255, 0) 2px;
+}
+
+.barChart-title{
+    color: #20253A;
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.barChart-Bar {
+    border-radius: 100px 100px 0 0;
+}
