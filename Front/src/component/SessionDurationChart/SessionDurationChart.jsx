@@ -39,7 +39,7 @@ function SessionDurationChart({userId}) {
       }
 
     return (
-    <LineChart width={730} height={250} data={userData.data.sessions}
+    <LineChart width={258} height={263} data={userData.data.sessions}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid className="toto" strokeDasharray="3 3" vertical={false}  horizontal={false}/>
         <XAxis dataKey="day" tickFormatter={(dayNumber) => getDayOfWeekInitial(dayNumber)} />
