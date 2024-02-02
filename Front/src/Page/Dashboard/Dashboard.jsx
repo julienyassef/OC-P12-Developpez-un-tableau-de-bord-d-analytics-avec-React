@@ -9,6 +9,7 @@ import KeyData from '../../component/KeyData/KeyData';
 import DailyDataChart from '../../component/DailyDataChart/DailyDataChart';
 import SessionDurationChart from '../../component/SessionDurationChart/SessionDurationChart';
 import ActivityCarriedOut from '../../component/ActivityCarriedOut/ActivityCarriedOut';
+import DailyScore from '../../component/DailyScore/DailyScore';
 
 // Data
 import { getUserData } from '../../apiService/apiService';
@@ -54,6 +55,7 @@ function Dashboard() {
           <div className="container-stats-chart">
             <SessionDurationChart userId={id}/>
             <ActivityCarriedOut userId={id}/>
+            <DailyScore userId={id}/>
           </div>
         </div>
         <div className="container-keyDatas">
