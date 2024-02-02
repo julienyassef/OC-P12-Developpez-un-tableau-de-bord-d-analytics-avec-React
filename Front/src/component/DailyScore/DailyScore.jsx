@@ -8,8 +8,8 @@ import { useParams } from 'react-router-dom';
 import { RadialBarChart, RadialBar, Legend, Tooltip } from 'recharts';
 
 // Data
-import { getUserData } from '../../apiService/apiService';
-import { getUserDataMock  } from '../../mockApi/mockApi';
+import { getUserData } from '../../utils/apiService/apiService';
+import { getUserDataMock  } from '../../utils/mockApi/mockApi';
 
 function DailyScore() {
 

@@ -8,8 +8,8 @@ import { useParams } from 'react-router-dom';
 import { LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line  } from 'recharts';
 
 // Data
-import { getUserAverageSessionData } from '../../apiService/apiService';
-import { getUserAverageSessionDataMock  } from '../../mockApi/mockApi';
+import { getUserAverageSessionData } from '../../utils/apiService/apiService';
+import { getUserAverageSessionDataMock  } from '../../utils/mockApi/mockApi';
 
 // Fonction pour obtenir la première lettre du jour de la semaine
 const getDayOfWeekInitial = (dayNumber) => {

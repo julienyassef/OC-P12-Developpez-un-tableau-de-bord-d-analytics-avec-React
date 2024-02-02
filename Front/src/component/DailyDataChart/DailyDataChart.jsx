@@ -8,8 +8,8 @@ import { useParams } from 'react-router-dom';
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, Text, ResponsiveContainer } from 'recharts';
 
 // Data
-import { getUserActivityData } from '../../apiService/apiService';
-import { getUserActivityDataMock  } from '../../mockApi/mockApi';
+import { getUserActivityData } from '../../utils/apiService/apiService';
+import { getUserActivityDataMock  } from '../../utils/mockApi/mockApi';
 
 function DailyDataChart({userId}) {
     const { id } = useParams();

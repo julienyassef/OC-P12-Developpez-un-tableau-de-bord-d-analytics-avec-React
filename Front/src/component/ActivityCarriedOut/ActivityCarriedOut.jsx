@@ -7,8 +7,8 @@ import { useParams } from 'react-router-dom';
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend } from 'recharts';
 
 // Data
-import { getUserPerformanceData } from '../../apiService/apiService';
-import { getUserPerformanceDataMock  } from '../../mockApi/mockApi';
+import { getUserPerformanceData } from '../../utils/apiService/apiService';
+import { getUserPerformanceDataMock  } from '../../utils/mockApi/mockApi';
 
 function ActivityCarriedOut({userId}) {
     const { id } = useParams();

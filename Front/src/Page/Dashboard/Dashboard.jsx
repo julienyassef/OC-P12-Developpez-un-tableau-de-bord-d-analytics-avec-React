@@ -12,8 +12,8 @@ import ActivityCarriedOut from '../../component/ActivityCarriedOut/ActivityCarri
 import DailyScore from '../../component/DailyScore/DailyScore';
 
 // Data
-import { getUserData } from '../../apiService/apiService';
-import { getUserDataMock  } from '../../mockApi/mockApi';
+import { getUserData } from '../../utils/apiService/apiService';
+import { getUserDataMock  } from '../../utils/mockApi/mockApi';
 
 function Dashboard() {
   const { id } = useParams();
