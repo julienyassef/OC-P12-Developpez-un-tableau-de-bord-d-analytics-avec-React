@@ -1,9 +1,5 @@
 import './Dashboard.css'
 
-//React
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-
 //component
 import KeyData from '../../component/KeyData/KeyData';
 import DailyDataChart from '../../component/DailyDataChart/DailyDataChart';
@@ -11,38 +7,20 @@ import SessionDurationChart from '../../component/SessionDurationChart/SessionDu
 import ActivityCarriedOut from '../../component/ActivityCarriedOut/ActivityCarriedOut';
 import DailyScore from '../../component/DailyScore/DailyScore';
 
-// Data
-import { getUserData } from '../../utils/apiService/apiService';
-import { getUserDataMock  } from '../../utils/mockApi/mockApi';
+import useData from '../../hooks/useData';
 
 function Dashboard() {
-  const { id } = useParams();
-  const [userData, setUserData] = useState(null);
+  const {userData} = useData();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getUserData(id);
-        // const data = await getUserDataMock(id);
-        setUserData(data);
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
-
-    fetchData();
-  }, [id]);
-
-
-  if (!userData) {
+  if (!userData.userInfos) {
     return <p>Loading...</p>;
   }
 
-  const { firstName } = userData.data.userInfos;
-  const { calorieCount, proteinCount, carbohydrateCount, lipidCount } = userData.data.keyData;
+  const { firstName } = userData.userInfos;
+  const { calorieCount, proteinCount, carbohydrateCount, lipidCount } = userData.keyData;
 
   return (
-    <div className="dashboard-container" key={id}>
+    <div className="dashboard-container">
       <div className="container-id">
         <h1 className="title-name">
           Bonjour <span className="txt-firstName">{firstName}</span>
@@ -51,11 +29,11 @@ function Dashboard() {
       </div>
       <div className="container-data">
         <div className="container-chart">
-          <DailyDataChart userId={id} />
+          <DailyDataChart/>
           <div className="container-stats-chart">
-            <SessionDurationChart userId={id}/>
-            <ActivityCarriedOut userId={id}/>
-            <DailyScore userId={id}/>
+            <SessionDurationChart />
+            <ActivityCarriedOut />
+            <DailyScore />
           </div>
         </div>
         <div className="container-keyDatas">

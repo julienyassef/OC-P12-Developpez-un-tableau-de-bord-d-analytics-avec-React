@@ -1,41 +1,21 @@
 import './DailyScore.css'
 
 //React
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 
 //Rechart
 import { RadialBarChart, RadialBar, Legend, Tooltip } from 'recharts';
 
-// Data
-import { getUserData } from '../../utils/apiService/apiService';
-import { getUserDataMock  } from '../../utils/mockApi/mockApi';
+//Data
+import useData from '../../hooks/useData';
+
+
 
 function DailyScore() {
+    const {userData} = useData();
 
-    const { id } = useParams();
-    const [userData, setUserData] = useState(null);
   
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const data = await getUserData(id);
-          // const data = await getUserDataMock(id);
-          setUserData(data);
-        } catch (error) {
-          console.error('Error fetching user data:', error);
-        }
-      };
-  
-      fetchData();
-    }, [id]);
-  
-  
-    if (!userData) {
-      return <p>Loading...</p>;
-    }
-  
-    const { score, todayScore } = userData.data;
+    const { score, todayScore } = userData;
 
     // Choisissez le score à utiliser, en priorisant todayScore s'il est défini
     const selectedScore = todayScore !== undefined ? todayScore : score;
@@ -57,11 +37,11 @@ function DailyScore() {
         >
         <RadialBar
             minAngle={0}
-            label={{ fill: '#666', position: 'insideStart' }}
-            fill='#FF0000'
+            label={{ fill: '#FF0000', position: 'insideStart' }}
+            fill='gray'
             clockWise={true}
             dataKey='uv'
-            maxAngle={scorePercentage } 
+            maxAngle={scorePercentage} 
         />
         <Tooltip />
         </RadialBarChart>

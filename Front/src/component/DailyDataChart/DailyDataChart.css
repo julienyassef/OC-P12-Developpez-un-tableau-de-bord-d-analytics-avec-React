@@ -5,7 +5,11 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
+}
+
+.test {
     border: solid rgb(26, 255, 0) 2px;
+    
 }
 
 .barChart-title{
@@ -17,5 +21,7 @@
 }
 
 .barChart-Bar {
+    height: 1px;
     border-radius: 100px 100px 0 0;
+    
 }

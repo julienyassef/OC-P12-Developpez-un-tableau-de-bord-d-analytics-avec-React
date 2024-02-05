@@ -5,19 +5,25 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBarHorizontal from './component/layout/NavBarHorizontal/NavBarHorizontal';
 import NavBarVertical from './component/layout/NavBarVertical/NavBarVertical';
 import Dashboard from './Page/Dashboard/Dashboard';
+import DataProvider from './provider/DataProvider';
+
 
 function App() {
   return (
     <Router>
-      <div className="app-container">
-        <NavBarHorizontal />
-        <NavBarVertical />
-        <div className="page-content">
-          <Routes>
-            <Route path="/user/:id" element={<Dashboard />} />
-          </Routes>
+        <div className="app-container">
+          <NavBarHorizontal />
+          <NavBarVertical />
+          <div className="page-content">
+            <Routes>
+              <Route path="/user/:id" element={
+                <DataProvider>
+                  <Dashboard />
+                </DataProvider>
+              } />
+            </Routes>
+          </div>
         </div>
-      </div>
     </Router>
   );
 }
