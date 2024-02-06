@@ -5,6 +5,7 @@
 }
 
 .container-id {
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -50,7 +51,6 @@
 }
 
 .container-keyDatas {
-    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
