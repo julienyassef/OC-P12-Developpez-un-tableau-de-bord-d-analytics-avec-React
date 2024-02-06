@@ -3,12 +3,13 @@ import './SessionDurationChart.css'
 //React
 import React from 'react';
 
-
 //Recharts
-import { LineChart, CartesianGrid, Rectangle, XAxis, YAxis, Tooltip, Legend, Line  } from 'recharts';
+import { LineChart, CartesianGrid, Rectangle, XAxis, YAxis, Tooltip, Legend, Dot, Line, ResponsiveContainer  } from 'recharts';
 
 //Data
 import useData from '../../hooks/useData';
+
+
 
 // Fonction pour obtenir la première lettre du jour de la semaine
 const getDayOfWeekInitial = (dayNumber) => {
@@ -27,26 +28,48 @@ const CustomCursor = ({ points, width }) => {
   };
   
 
-
+// Définition du composant CustomTooltip
 const CustomTooltip = ({ active, payload, label }) => {
-if (active && payload && payload.length) {
-console.log("Payload:", payload);
-return (
-    <div
-    className="custom-tooltip"
-    style={{
-        backgroundColor: "white",
-        color: "black",
-        padding: 2,
-        fontSize: 10,
-    }}
-    >
-    <p>{`${payload[0].value}min`}</p>
-    </div>
-);
-}
-return null;
-};
+    // Vérification si le tooltip doit être affiché et si le payload contient des données
+    if (active && payload && payload.length) {
+      return (
+        <div
+          className="custom-tooltip"
+          style={{
+            backgroundColor: "white",
+            color: "black",
+            padding: 2,
+            fontSize: 12,
+          }}
+        >
+          <p>{`${payload[0].value}min`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
+
+ // Définition du composant CustomDot
+const CustomDot = ({ cx, cy, index, data }) => {
+    // Vérification si l'index est le premier ou le dernier élément du tableau de données
+    if (index === 0 || index === data.length - 1) {
+      return null;
+    }
+    // Si ce n'est pas le premier ou le dernier élément, rend un élément Dot avec des propriétés personnalisées
+    return (
+      <Dot
+        cx={cx}        // Coordonnée x du centre du cercle
+        cy={cy}        // Coordonnée y du centre du cercle
+        fill="#fff"    // Couleur de remplissage du cercle (blanc)
+        r={4}          // Rayon du cercle
+        stroke="#ffffff50"   // Couleur de la bordure du cercle avec une transparence (blanc avec 50% d'opacité)
+        strokeWidth={10}     // Épaisseur de la bordure du cercle
+      />
+    );
+  };
+  
+  
 
 
 
@@ -55,21 +78,46 @@ function SessionDurationChart() {
 
 
     return (
-        <LineChart className="sessionDuration" width={258} height={263} data={userAverageSessionData.sessions} margin={{ top: 5, right: 0, left: 0, bottom: 5 }}>
-            <text x={30} y={30} fill="#faf9f6" textAnchor="start" dominantBaseline="central">
-                <tspan>Durée moyenne des</tspan>
-                <tspan x={30} dy={20}>sessions</tspan>
-            </text>
-            <XAxis className='toto' stroke="white" tickLine={false} axisLine={false}  dataKey ="day" tickFormatter={(value) => getDayOfWeekInitial(value)}/>
-            <YAxis domain={["dataMin", "dataMax + 60"]} hide />
-            <Tooltip
-            content={<CustomTooltip />}
-            cursor={<CustomCursor />}
-            style={{ backgroundColor: "black" }}
-          />
-            <Legend />
-            <Line type="monotone" dataKey="sessionLength" stroke="white" /> 
-        </LineChart>
+        <ResponsiveContainer width={250} height={250}>
+            <LineChart 
+                className="sessionDuration" 
+                data={userAverageSessionData.sessions} 
+                margin={{ top: 5, right: 0, left: 0, bottom: 5 }}>
+                    <text x={30} y={30} 
+                    opacity="0.504" 
+                    fill="#faf9f6" 
+                    textAnchor="start" 
+                    dominantBaseline="central">
+                        <tspan>Durée moyenne des</tspan>
+                        <tspan x={30} dy={20}>sessions</tspan>
+                    </text>
+                <XAxis 
+                    className='legend-lineChart' 
+                    stroke="white" 
+                    tickLine={false} 
+                    axisLine={false}  
+                    dataKey ="day" 
+                    tickFormatter={(value) => getDayOfWeekInitial(value)}
+                />
+                <YAxis 
+                    domain={["dataMin - 20", "dataMax + 60"]} 
+                    hide 
+                />
+                <Tooltip
+                    content={<CustomTooltip />}
+                    cursor={<CustomCursor />}
+                />
+                <Line
+                    type="natural"
+                    opacity="0.504" 
+                    dataKey="sessionLength"
+                    stroke="#faf9f6"
+                    strokeWidth={2} 
+                    dot={false}
+                    activeDot={<CustomDot data={useData} />}
+                />
+            </LineChart>
+        </ResponsiveContainer>
     );
 }
 export default SessionDurationChart
