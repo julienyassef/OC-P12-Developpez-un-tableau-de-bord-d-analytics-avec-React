@@ -18,32 +18,13 @@ const DailyDataChart = () => {
     return parseInt(day, 10);
   };
 
- // Fonction pour échelle des kilogrammes
- const scaleKilogram = (data) => {
-  // Extract le tableau des valeurs de kilogrammes
-  const kilograms = data.sessions.map(session => session.kilogram);
-
-  // Détermine la valeur minimale et maximale des kilogrammes
-  const minValue = Math.min(...kilograms);
-  const maxValue = Math.max(...kilograms);
-
-  // Retourne une chaîne représentant le domaine souhaité
-  return [minValue, maxValue +1];
-};
-
 const Dot = ({ color })  => {
     return (
-      <div
-        style={{
-          width: "10px",
-          height: "10px",
-          marginTop: "7px",
-          marginRight: "5px",
-          marginLeft: "40px",
-          backgroundColor: color,
-          borderRadius: "50%",
-        }}
-      />
+      <div 
+      className='dot-legend-barChart'
+      style={{
+        backgroundColor: color,
+      }}/>
     );
   }  
   
@@ -51,7 +32,6 @@ const Dot = ({ color })  => {
     if (active && payload && payload.length) {
       return (
         <div
-          className="custom-tooltip"
           style={{
             backgroundColor: "red",
             color: "white",
@@ -70,18 +50,16 @@ const Dot = ({ color })  => {
     
     return (
       <ResponsiveContainer className='responsiveContainerChart' width={835} height={320}>
-        <div className='header-barChart'>
-          <div className='barChartTitle'>Activité quotidienne</div>
-          <div className="legend-barChart">
-            <Dot margin={0} color={"black"} />
-            <div className='textLegend-BarChart'> Poids (kg)</div>
-            <Dot color={"red"} />
-            <div className='textLegend-BarChart'>Calories brulée (kCal)</div>
+          <div className='header-barChart'>
+            <div className='barChartTitle'>Activité quotidienne</div>
+            <div className="legend-barChart">
+              <Dot margin={0} color={"black"} />
+              <div className='textLegend-BarChart'> Poids (kg)</div>
+              <Dot color={"red"} />
+              <div className='textLegend-BarChart'>Calories brulée (kCal)</div>
+            </div>
           </div>
-        </div>
           <BarChart 
-            width={835} 
-            height={320} 
             data={userActivityData.sessions}
             margin={{
               top: 5,
@@ -100,8 +78,6 @@ const Dot = ({ color })  => {
               dataKey={(data) => extractDay(data.day)}
             />
             <YAxis
-              dataKey="kilogram"
-              domain={scaleKilogram(userActivityData)}
               orientation="right"
               axisLine={false}
               tickLine={false}
