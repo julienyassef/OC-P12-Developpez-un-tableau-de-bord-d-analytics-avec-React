@@ -21,22 +21,22 @@ function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <div className="container-id">
-        <h1 className="title-name">
-          Bonjour <span className="txt-firstName">{firstName}</span>
+      <div className="dashboard-container-id">
+        <h1 className="dashboard-title-name">
+          Bonjour <span className="dashboard-txt-firstName">{firstName}</span>
         </h1>
-        <p className="txt-congratulation">Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
+        <p className="dashboard-txt-congratulation">Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
-      <div className="container-data">
-        <div className="container-chart">
+      <div className="dashboard-container-data">
+        <div className="dashboard-container-chart">
           <DailyDataChart/>
-          <div className="container-stats-chart">
+          <div className="dashboard-container-stats-chart">
             <SessionDurationChart />
             <ActivityCarriedOut />
             <DailyScore />
           </div>
         </div>
-        <div className="container-keyDatas">
+        <div className="dashboard-container-keyDatas">
           <KeyData type="calorie" value={calorieCount} />
           <KeyData type="protein" value={proteinCount} />
           <KeyData type="carbohydrate" value={carbohydrateCount} />

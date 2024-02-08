@@ -1,10 +1,6 @@
-.dashboard-container {
-    display: flex;
-    flex-direction: column;
 
-}
 
-.container-id {
+.dashboard-container-id {
     max-width: 100%;
     display: flex;
     flex-direction: column;
@@ -13,7 +9,7 @@
     margin-top: 60px;
 }
 
-.title-name {
+.dashboard-title-name {
     color: #000;
     font-family: Roboto;
     font-size: 48px;
@@ -22,11 +18,11 @@
     margin: 0;
 }
 
-.txt-firstName  {
+.dashboard-txt-firstName  {
     color: #FF0101;
 }
 
-.txt-congratulation {
+.dashboard-txt-congratulation {
     color: #000;
     font-family: Roboto;
     font-size: 18px;
@@ -35,22 +31,32 @@
     margin: 0;
 }
 
-.container-data {
-    display: flex;
-    flex-direction: row;
-}
-
-.container-chart {
+.dashboard-dashboard-container {
     display: flex;
     flex-direction: column;
+
 }
 
-.container-stats-chart{
+.dashboard-container-data {
     display: flex;
     flex-direction: row;
+    gap: 30px;
 }
 
-.container-keyDatas {
+.dashboard-container-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
+}
+
+.dashboard-container-stats-chart{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+.dashboard-container-keyDatas {
     display: flex;
     flex-direction: column;
     align-items: center;
