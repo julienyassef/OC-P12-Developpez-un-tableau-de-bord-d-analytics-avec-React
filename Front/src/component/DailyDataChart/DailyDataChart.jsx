@@ -49,16 +49,17 @@ const Dot = ({ color })  => {
   };
     
     return (
-      <ResponsiveContainer className='responsiveContainerChart' width={835} height={320}>
-          <div className='header-barChart'>
-            <div className='barChartTitle'>Activité quotidienne</div>
-            <div className="legend-barChart">
-              <Dot margin={0} color={"black"} />
-              <div className='textLegend-BarChart'> Poids (kg)</div>
-              <Dot color={"red"} />
-              <div className='textLegend-BarChart'>Calories brulée (kCal)</div>
-            </div>
+      <div className="responsiveContainerChart">
+        <div className='header-barChart'>
+          <div className='barChartTitle'>Activité quotidienne</div>
+          <div className="legend-barChart">
+            <Dot margin={0} color={"black"} />
+            <div className='textLegend-BarChart'> Poids (kg)</div>
+            <Dot color={"red"} />
+            <div className='textLegend-BarChart'>Calories brulée (kCal)</div>
           </div>
+        </div>
+        <ResponsiveContainer height={220}>
           <BarChart 
             data={userActivityData.sessions}
             margin={{
@@ -87,7 +88,8 @@ const Dot = ({ color })  => {
             <Bar dataKey="kilogram" fill="#282D30" radius={[5, 5, 0, 0]}/>
             <Bar dataKey="calories" fill="#E60000"  radius={[5, 5, 0, 0]} />
           </BarChart>
-      </ResponsiveContainer>
+        </ResponsiveContainer>
+      </div>
     );
 }
 export default DailyDataChart
