@@ -51,12 +51,8 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 
  // Définition du composant CustomDot
-const CustomDot = ({ cx, cy, index, data }) => {
-    // Vérification si l'index est le premier ou le dernier élément du tableau de données
-    if (index === 0 || index === data.length - 1) {
-      return null;
-    }
-    // Si ce n'est pas le premier ou le dernier élément, rend un élément Dot avec des propriétés personnalisées
+const CustomDot = ({ cx, cy }) => {
+
     return (
       <Dot
         cx={cx}        // Coordonnée x du centre du cercle
@@ -82,15 +78,16 @@ function SessionDurationChart() {
             <LineChart 
                 className="sessionDuration" 
                 data={userAverageSessionData.sessions} 
-                margin={{ top: 5, right: 0, left: 0, bottom: 5 }}>
-                    <text x={30} y={30} 
-                    opacity="0.504" 
-                    fill="#faf9f6" 
-                    textAnchor="start" 
-                    dominantBaseline="central">
-                        <tspan>Durée moyenne des</tspan>
-                        <tspan x={30} dy={20}>sessions</tspan>
-                    </text>
+                margin={{ top: 5, right: 15, left: 15, bottom: 5 }}
+              >
+                <text x={30} y={30} 
+                  opacity="0.504" 
+                  fill="#faf9f6" 
+                  textAnchor="start" 
+                  dominantBaseline="central">
+                  <tspan>Durée moyenne des</tspan>
+                  <tspan x={30} dy={20}>sessions</tspan>
+                </text>
                 <XAxis 
                     className='legend-lineChart' 
                     stroke="white" 
