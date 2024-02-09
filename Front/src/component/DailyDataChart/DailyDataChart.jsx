@@ -89,7 +89,7 @@ const Dot = ({ color })  => {
             <XAxis 
               className='barChart-XAxis' 
               tickLine={false}
-              tickMargin={18} 
+              tickMargin={14} 
               dataKey={(data) => extractDay(data.day)}
               
             />
