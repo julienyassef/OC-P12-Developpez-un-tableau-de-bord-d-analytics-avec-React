@@ -32,14 +32,10 @@ function Dashboard() {
           <div  className="componentDailyDataChart">
             <DailyDataChart/>
           </div>
-          <div className="componentSessionDurationChart">
-          <SessionDurationChart  />
-          </div>
-          <div className="componentActivityCarriedOut">
-          <ActivityCarriedOut />
-          </div>
-          <div  className="componentDailyScore">
-          <DailyScore />
+          <div className="dashboard-container-stats-chart">
+            <SessionDurationChart  />
+            <ActivityCarriedOut />
+            <DailyScore />
           </div>
         </div>
         <div className="dashboard-container-keyDatas">

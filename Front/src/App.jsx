@@ -14,7 +14,6 @@ function App() {
         <div className="app-container">
           <NavBarHorizontal />
           <NavBarVertical />
-          <div className="page-content">
             <Routes>
               <Route path="/user/:id" element={
                 <DataProvider>
@@ -22,7 +21,6 @@ function App() {
                 </DataProvider>
               } />
             </Routes>
-          </div>
         </div>
     </Router>
   );
