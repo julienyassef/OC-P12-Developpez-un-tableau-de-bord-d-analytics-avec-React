@@ -47,6 +47,20 @@ const Dot = ({ color })  => {
 
     return null;
   };
+
+  // Calcul des poids min et max
+  const weightData = userActivityData.sessions.map((session) => session.kilogram);
+  const minWeight = Math.min(...weightData);
+  const maxWeight = Math.max(...weightData);
+
+  // Calcul des calories min et max
+  const caloriesData = userActivityData.sessions.map((session) => session.calories);
+  const minCalories = Math.min(...caloriesData);
+  const maxCalories = Math.max(...caloriesData);
+
+  
+
+  console.log(maxWeight)
     
     return (
       <div className="responsiveContainerChart">
@@ -77,16 +91,41 @@ const Dot = ({ color })  => {
               tickLine={false}
               tickMargin={18} 
               dataKey={(data) => extractDay(data.day)}
+              
             />
             <YAxis
+             yAxisId="kilogram"
               orientation="right"
               axisLine={false}
               tickLine={false}
               tickMargin={30}
+              dataKey="kilogram" 
+              domain={[minWeight -1 , maxWeight ]}
+              interval={1} 
             />
+             <YAxis
+                yAxisId="calories"
+                orientation="right"
+                axisLine={false}
+                tickLine={false}
+                tickMargin={30}
+                dataKey="calories" 
+                domain={[minCalories - 100, maxCalories + 100]}
+                hide={true}
+              />
             <Tooltip content={<CustomTooltip />} />
-            <Bar dataKey="kilogram" fill="#282D30" radius={[5, 5, 0, 0]}/>
-            <Bar dataKey="calories" fill="#E60000"  radius={[5, 5, 0, 0]} />
+            <Bar 
+              dataKey="kilogram" 
+              fill="#282D30" 
+              radius={[5, 5, 0, 0]}
+              yAxisId="kilogram"
+            />
+            <Bar 
+              dataKey="calories" 
+              fill="#E60000"  
+              radius={[5, 5, 0, 0]} 
+              yAxisId="calories" 
+            />
           </BarChart>
         </ResponsiveContainer>
       </div>
