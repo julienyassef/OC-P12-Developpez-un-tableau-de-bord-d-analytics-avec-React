@@ -44,17 +44,37 @@
 }
 
 .dashboard-container-chart {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(3, 1fr);
     
 }
 
+.componentDailyDataChart {
+    grid-row: 1;
+    grid-column: span 3;
+    
+}
+
+.componentSessionDurationChart {
+    grid-row: 2;
+    grid-column: span 1;
+}
+.componentActivityCarriedOut{
+    grid-row: 2;
+    grid-column: span 1;
+}
+.componentDailyScore {
+    grid-row: 2;
+    grid-column: span 1;
+}
+
+/* 
 .dashboard-container-stats-chart{
     display: flex;
     align-items: center;
     justify-content: space-between; 
-}
+} */
 
 .dashboard-container-keyDatas {
     display: flex;

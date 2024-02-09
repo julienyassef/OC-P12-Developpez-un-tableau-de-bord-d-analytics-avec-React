@@ -73,7 +73,7 @@ const Dot = ({ color })  => {
             <div className='textLegend-BarChart'>Calories brulée (kCal)</div>
           </div>
         </div>
-        <ResponsiveContainer height={220}>
+        <ResponsiveContainer maxHeight={220} >
           <BarChart 
             data={userActivityData.sessions}
             margin={{
