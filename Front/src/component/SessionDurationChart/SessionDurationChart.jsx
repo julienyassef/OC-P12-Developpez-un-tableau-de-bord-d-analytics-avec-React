@@ -107,6 +107,7 @@ function SessionDurationChart() {
                     content={<CustomTooltip />}
                     cursor={<CustomCursor />}
                 />
+
                 <Line
                     type="natural"
                     opacity="0.504" 

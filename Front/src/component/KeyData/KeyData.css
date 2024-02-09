@@ -23,13 +23,13 @@
     position: absolute;
     top: 50%; 
     transform: translateY(-50%);
-    left: 30px;
+    left: 20px;
 }
 
 .data-keyData {
     color: #282D30;
     font-family: Roboto;
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 700;
     margin: 0;
