@@ -1,5 +1,5 @@
 .NavBarVertical {
-    position: relative; 
+    position: fixed; 
     width: 117px;
     height: 100vh;
     background: #020203;
@@ -7,6 +7,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    margin-top: 91px;
+    z-index: 99;
  
 }
 
@@ -23,7 +26,7 @@
 
 .mention-copiryght {
     position: absolute; 
-    bottom: 100px;
+    bottom: 170px;
     width: 138px;
     height: 24px;
     color: #FFF;
@@ -32,4 +35,5 @@
     font-style: normal;
     font-weight: 500;
     rotate: 270deg;
+
 }

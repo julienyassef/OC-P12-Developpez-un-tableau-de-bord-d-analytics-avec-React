@@ -7,7 +7,9 @@ export const DataContext = createContext({
     userData: {},
     userActivityData: {},
     userPerformanceData: {},
-    userAverageSessionData: {}
+    userAverageSessionData: {},
+    isLoading: true,
+    isError: false,
 })
 
 const DataProvider = ({children}) => {
@@ -17,6 +19,8 @@ const DataProvider = ({children}) => {
     const [userActivityData, setUserActivityData] = useState({})
     const [userPerformanceData, setUserPerformanceData] = useState({})
     const [userAverageSessionData, setUserAverageSessionData] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
+    const [isError, setIsError] = useState(false)
 
     // USERDATA
     useEffect(() => {
@@ -26,6 +30,7 @@ const DataProvider = ({children}) => {
             setUserData(data.data);
 
         } catch (error) {
+            setIsError(true)
             console.error('Error fetching user data:', error);
         }
         };
@@ -40,6 +45,7 @@ const DataProvider = ({children}) => {
             const data = await getUserActivityData(id);
             setUserActivityData(data.data);
           } catch (error) {
+            setIsError(true)
             console.error('Error fetching user data:', error);
           }
         };
@@ -53,7 +59,8 @@ const DataProvider = ({children}) => {
                 const data = await getUserPerformanceData(id);
                 setUserPerformanceData(data.data);
               } catch (error) {
-                console.error('Error fetching user data:', error);
+            setIsError(true)
+            console.error('Error fetching user data:', error);
               }
             };
             fetchData();
@@ -66,15 +73,25 @@ const DataProvider = ({children}) => {
               const data = await getUserAverageSessionData(id);
               setUserAverageSessionData(data.data);
             } catch (error) {
-              console.error('Error fetching user data:', error);
+            setIsError(true)
+            console.error('Error fetching user data:', error);
             }
           };
           fetchData();
   }, [id]);
 
+      useEffect(() => {
+        if (userData.id &&
+            userActivityData.userId &&
+            userPerformanceData.userId &&
+            userAverageSessionData.userId) {
+              setIsLoading(false)
+            }
+      }, [userData, userActivityData, userPerformanceData, userAverageSessionData])
+
 
     return (
-        <DataContext.Provider value={{userData, userActivityData, userPerformanceData, userAverageSessionData, setUserData}}>
+        <DataContext.Provider value={{userData, userActivityData, userPerformanceData, userAverageSessionData, setUserData, isLoading, isError}}>
             {children} 
         </DataContext.Provider>
     ) 

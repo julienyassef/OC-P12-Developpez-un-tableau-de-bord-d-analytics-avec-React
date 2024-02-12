@@ -58,9 +58,8 @@ const Dot = ({ color })  => {
   const minCalories = Math.min(...caloriesData);
   const maxCalories = Math.max(...caloriesData);
 
-  
 
-  console.log(maxWeight)
+  // console.log(weightData)
     
     return (
       <div className="responsiveContainerChart">

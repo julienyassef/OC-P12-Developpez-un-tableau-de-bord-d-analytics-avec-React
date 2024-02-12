@@ -1,4 +1,6 @@
 .NavBarHorizontal {
+    position: fixed;
+    z-index: 100;
     width: 100%;
     height: 91px;
     background: #020203;
@@ -15,21 +17,22 @@
     align-items: center;  
     padding-left: 29px;
     gap: 10px;
+   
 }
 
 .logo {
-    width: 57.196px;
-    height: 57.703px;
+    width: 57px;
+    height: 57px;
 }
 
 .nameSite {
-    width: 109.302px;
-    height: 24.286px;
+    width: 109px;
+    height: 24px;
 }
 
-a {
+.NavBarHorizontal a {
     color: #FFF;
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 24px;
     font-style: normal;
     font-weight: 500;

@@ -10,10 +10,15 @@ import DailyScore from '../../component/DailyScore/DailyScore';
 import useData from '../../hooks/useData';
 
 function Dashboard() {
-  const {userData} = useData();
+  const {userData, isLoading, isError} = useData();
 
-  if (!userData.userInfos) {
-    return <p>Loading...</p>;
+  console.log(isError)
+
+  if (isError) {
+    return <p style={{marginLeft: "200px", marginTop: "200px"}}>Error 404</p>;
+  }
+  if (isLoading) {
+    return <p style={{marginLeft: "200px", marginTop: "200px"}}>Loading...</p>;
   }
 
   const { firstName } = userData.userInfos;

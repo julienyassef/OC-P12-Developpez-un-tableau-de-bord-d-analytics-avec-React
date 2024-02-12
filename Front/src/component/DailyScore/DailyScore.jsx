@@ -38,8 +38,7 @@ function DailyScore() {
         </p>
       </div>
       <div className="container-chart ">
-        <PieChart  className= 'toto'
-        width={250} height={250}>
+        <PieChart width={250} height={250}>
           <Pie
             data={data}
             dataKey="value"
@@ -50,7 +49,6 @@ function DailyScore() {
             outerRadius={80}
             cornerRadius={10}
             startAngle={-180}
-            
           >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />

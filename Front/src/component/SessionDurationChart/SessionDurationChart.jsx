@@ -4,7 +4,7 @@ import './SessionDurationChart.css'
 import React, { useState } from 'react';
 
 //Recharts
-import { LineChart, CartesianGrid, Rectangle, XAxis, YAxis, Tooltip, Legend, Dot, Line, ResponsiveContainer } from 'recharts';
+import { LineChart, Rectangle, XAxis, YAxis, Tooltip, Legend, Dot, Line} from 'recharts';
 
 //Data
 import useData from '../../hooks/useData';
@@ -68,11 +68,9 @@ const CustomDot = ({ cx, cy }) => {
 
 function SessionDurationChart() {
     const {userAverageSessionData} = useData() 
-    const [cursorActive, setCursorActive] = useState(false); 
 
     return (
-        <ResponsiveContainer width={250} height={250}>
-            <LineChart 
+            <LineChart width={250} height={250}
                 className="sessionDuration" 
                 data={userAverageSessionData.sessions} 
                 margin={{ top: 5, right: 15, left: 15, bottom: 5 }}
@@ -112,7 +110,6 @@ function SessionDurationChart() {
                     activeDot={<CustomDot data={useData} />}
                 />
             </LineChart>
-        </ResponsiveContainer>
     );
 }
 export default SessionDurationChart

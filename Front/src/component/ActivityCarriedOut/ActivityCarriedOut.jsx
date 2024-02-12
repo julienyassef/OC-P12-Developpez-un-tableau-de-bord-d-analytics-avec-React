@@ -28,8 +28,8 @@ const getKindArray = () => {
 
  
   return (
-    <ResponsiveContainer width={258} height={250}>
-      <RadarChart
+  
+      <RadarChart width={258} height={250}
       className='RadarChart'
         cx="50%"
         cy="50%"
@@ -51,7 +51,7 @@ const getKindArray = () => {
           fillOpacity={0.6}
         />
       </RadarChart>
-    </ResponsiveContainer>
+
   )
 }
 export default ActivityCarriedOut
