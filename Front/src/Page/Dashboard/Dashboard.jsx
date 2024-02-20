@@ -12,8 +12,6 @@ import useData from '../../hooks/useData';
 function Dashboard() {
   const {userData, isLoading, isError} = useData();
 
-  console.log(isError)
-
   if (isError) {
     return <p style={{marginLeft: "200px", marginTop: "200px"}}>Error 404</p>;
   }

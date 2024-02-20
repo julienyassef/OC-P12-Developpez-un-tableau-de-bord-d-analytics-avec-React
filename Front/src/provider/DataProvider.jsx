@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { getUserData, getUserActivityData, getUserPerformanceData, getUserAverageSessionData } from "../utils/apiService/apiService";
+import { getUserDataMock, getUserActivityDataMock, getUserAverageSessionDataMock, getUserPerformanceDataMock   } from "../utils/mockApi/mockApi";
 
 
 export const DataContext = createContext({
@@ -26,6 +27,7 @@ const DataProvider = ({children}) => {
     useEffect(() => {
         const fetchData = async () => {
         try {
+            // const data = await getUserDataMock(id);
             const data = await getUserData(id);
             setUserData(data.data);
 
@@ -42,6 +44,7 @@ const DataProvider = ({children}) => {
     useEffect(() => {
         const fetchData = async () => {
           try {
+            // const data = await getUserActivityDataMock(id);
             const data = await getUserActivityData(id);
             setUserActivityData(data.data);
           } catch (error) {
@@ -56,6 +59,7 @@ const DataProvider = ({children}) => {
       useEffect(() => {
         const fetchData = async () => {
             try {
+                // const data = await getUserPerformanceDataMock(id); 
                 const data = await getUserPerformanceData(id);
                 setUserPerformanceData(data.data);
               } catch (error) {
@@ -70,6 +74,7 @@ const DataProvider = ({children}) => {
      useEffect(() => {
       const fetchData = async () => {
           try {
+              // const data = await getUserAverageSessionDataMock(id); 
               const data = await getUserAverageSessionData(id);
               setUserAverageSessionData(data.data);
             } catch (error) {

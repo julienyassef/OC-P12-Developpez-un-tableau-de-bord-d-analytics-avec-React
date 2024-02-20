@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBarHorizontal from './component/layout/NavBarHorizontal/NavBarHorizontal';
 import NavBarVertical from './component/layout/NavBarVertical/NavBarVertical';
-import Dashboard from './Page/Dashboard/Dashboard';
+import Dashboard from './page/Dashboard/Dashboard';
 import DataProvider from './provider/DataProvider';
 
 import './index.css'

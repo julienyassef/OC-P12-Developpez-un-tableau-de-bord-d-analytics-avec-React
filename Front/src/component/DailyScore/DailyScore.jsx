@@ -4,7 +4,7 @@ import './DailyScore.css';
 import React from 'react';
 
 // Rechart
-import { PieChart, Pie, Cell, Text, Label } from 'recharts';
+import { PieChart, Pie, Cell } from 'recharts';
 
 // Data
 import useData from '../../hooks/useData';

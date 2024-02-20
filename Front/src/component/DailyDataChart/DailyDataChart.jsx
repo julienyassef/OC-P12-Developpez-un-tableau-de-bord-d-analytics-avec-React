@@ -1,6 +1,9 @@
 import './DailyDataChart.css'
 
 import useData from '../../hooks/useData';
+import { getUserDataMock } from '../../utils/mockApi/mockApi';
+
+
 
 //Recharts
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar, ResponsiveContainer } from 'recharts';
